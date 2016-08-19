@@ -52,7 +52,6 @@ public class ConsoleContent
 		{
 			sb.append(line).append("\r\n");
 		}
-		sb.delete(sb.length()-2, sb.length());
 		return sb;
 	}
 	
