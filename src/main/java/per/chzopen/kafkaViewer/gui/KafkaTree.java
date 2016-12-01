@@ -7,6 +7,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -306,7 +308,13 @@ public class KafkaTree extends JTree
 			{
 				tmpList.add(new KafkaTreeNode(childName, NodeType.topic));
 			}
-			tmpList.sort((KafkaTreeNode o1, KafkaTreeNode o2) -> o1.compareAsString(o2));
+			Collections.sort(tmpList, new Comparator<KafkaTreeNode>()
+			{
+				public int compare(KafkaTreeNode o1, KafkaTreeNode o2)
+				{
+					return o1.compareAsString(o2);
+				}
+			});
 			addChildren(treeNode, tmpList, false);
 		}
 		else if( treeNode.getType()==NodeType.topic )
@@ -328,7 +336,13 @@ public class KafkaTree extends JTree
 			{
 				tmpList.add(new KafkaTreeNode(childName, NodeType.partition));
 			}
-			tmpList.sort((KafkaTreeNode o1, KafkaTreeNode o2) -> o1.compareAsDecimal(o2));
+			Collections.sort(tmpList, new Comparator<KafkaTreeNode>()
+			{
+				public int compare(KafkaTreeNode o1, KafkaTreeNode o2)
+				{
+					return o1.compareAsDecimal(o2);
+				}
+			});
 			addChildren(treeNode, tmpList, true);
 		}
 	}
@@ -383,12 +397,14 @@ public class KafkaTree extends JTree
 		{
 			return this.getName().compareTo(o2.getName());
 		}
+		
 		public int compareAsDecimal(KafkaTreeNode o2)
 		{
 			BigDecimal d1 = new BigDecimal(this.getName());
 			BigDecimal d2 = new BigDecimal(o2.getName());
 			return d1.compareTo(d2);
 		}
+		
 	}
 
 	/**

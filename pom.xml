@@ -12,10 +12,15 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+        <maven.compiler.source>1.7</maven.compiler.source>  
+        <maven.compiler.target>1.7</maven.compiler.target>  
+        <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>  
+                
 		<slf4j.version>1.7.21</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 	</properties>
-
+    
 	<dependencies>
 
 		<dependency>
@@ -67,20 +72,5 @@
 		</dependency>
 		
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>jdk-1.8</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<jdk>1.8</jdk>
-			</activation>
-			<properties>
-				<maven.compiler.source>1.8</maven.compiler.source>
-				<maven.compiler.target>1.8</maven.compiler.target>
-				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-			</properties>
-		</profile>
-	</profiles>
 
 </project>

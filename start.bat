@@ -1,2 +1,1 @@
-cls
-python run.py start
+java -cp .;dependency/* per.chzopen.kafkaViewer.AppGUI
