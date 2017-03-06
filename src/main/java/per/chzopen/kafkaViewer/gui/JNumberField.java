@@ -2,8 +2,6 @@ package per.chzopen.kafkaViewer.gui;
 
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
 
